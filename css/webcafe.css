@@ -1,0 +1,116 @@
+@charset "utf-8"; /*html과 동일한 인코딩 방식을 선택 해야 함. @c누르면 자동완성 됨*/
+
+/* ctrl+ / 누르면 주석 추가/해제 된다.  */
+
+/* layout */
+/* 공통스타일 */
+*, *::before, *::after{
+  /* 블럭잡고 alt를 누르고 화살표 위아래를 하면 문장이 옮겨진다.  */
+  box-sizing:border-box;
+}
+
+.clearfix::after{
+  content: "";
+  /* background: yellow; */
+  display:block;
+  clear:both;
+}
+
+body{
+  margin: 0px;
+}
+/* display:flex적용하는 방식 container안에 선언해야 한다. */
+.container{
+  background: slateblue;
+  /* display: flex; */
+  /* flex-direction:column;
+  align-items: center; */
+  /* 각각 줄바꿈 된다. flex-wrap: wrap;을 넣으면 (위의 flex-direction:column;과 유사하게 표출됨) */
+  /* flex-wrap: wrap; */
+  /* justify-content: center;
+  flex-flow: column wrap;  */
+  /* flex-wrap: wrap; flex-direction:column;을 섞어서 하나로 적은 형태  */
+}
+
+/* 아래와 같이 적어주면 공통(.header, .visual, .main, .slogan, .footer)으로 적용 되는 css를 선언할 수 있다.  */
+.header, .visual, .main, .slogan, .footer{
+  width: 940px;
+  /* border:10px solid black;   검정색 선 상자가 만들어진다.  */
+  /* border:10px solid black; */
+  /* padding: 0 50px; */
+  /* margin: 0 0 0 auto; */
+/* 아래와 같이 작성하면 중간에 위치시킬 수 있다.  */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header{
+  background: yellow;
+  height: 10vh;
+}
+
+/* 복사하고 싶은 영역을 블럭을 잡고 alt + shift + 아래화살표 키를 누르면 복사 된다.   */
+
+.visual{
+  background: gray;
+  height: 10vh;
+}
+.main{
+  background: orangered;
+  /* height: 60vh; */
+  /* 높이가 부모만큼, 가로는 컨텐츠 만큼 들어간다.  */
+  /* display:flex; */
+  /* 나눠있는 여백을 같은 크기만큼 해준다. 양끝은 제외. evenly를 사용하면 베스트 이지만, ie11부터 호환 가능하므로 아래와 같이 padding을 추가하자*/
+  /* justify-content: space-between; */
+  padding: 30 30px;
+  min-height: 400px;
+  /* overflow: hidden; */
+  /* justify-content: space-around; */
+
+  /* 남아있는 여백을 균등하게 여백을 준다.  다만 ie11이상이므로 적용이 안된다. 
+  justify-content: space-evenly;*/
+}
+/* after는 마지막 자식노드 요소를  */
+
+.group{
+  margin: 0 15px;
+  float: left;
+}
+.group1{
+  background: pink;
+  /* float: left;  */
+  width:250px;
+}
+.group2{
+  /* float와 겹치지 못하게 하는 속성 clear */
+  /* clear: both; */
+  background: skyblue;
+  /* height:100px; */
+  /* float:left; */
+  width: 380px;
+  /* 0보다 앞의 order를 주고싶으면 -를 주고, 0보다 큰 숫자를 주고 싶다면 0보다 큰 숫자를 주면된다.  */
+  /* 그룹1 -> 3 -> 2 */
+  /* order: 1;  */
+
+}
+.group3{
+  background: lime;
+  /* float:left; */
+  width: 190px;
+}
+.slogan{
+  background: purple;
+  height: 10vh;
+}
+.footer-bg{
+  background: silver;
+  
+  /* flex-basis: 100%; 부모인 영역사이즈 만큼 늘려줘~ (부모는 740px이 아닌 전체 화면이므로) */
+  /* flex-basis: 100%;  
+  display:flex;
+  justify-content: center; */
+}
+.footer{
+  background: yellow;
+  height: 10vh;
+}
