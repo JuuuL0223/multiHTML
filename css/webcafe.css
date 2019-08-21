@@ -1,88 +1,59 @@
-@charset "utf-8"; /*html과 동일한 인코딩 방식을 선택 해야 함. @c누르면 자동완성 됨*/
-@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css"); /*encoding선언 다음에 font를 설정해야 한다!!*/
-@import url("./normalize.css"); /*url함수를 불러준다*/
-@import url("./reset.css"); /* css는 위에서 아래로 정의하기 때문에 위에서 적용된 것이 아래에 또 있다면 위의 것은 무시되고 아래것이 덮어쓴다. 나중에 선언한게 우선한다.*/
-
-/* 숨김컨텐츠 (디자인상 노출 하지 않을 화면에 보이진 않지만, 스크린 리더에서 읽어야 할 것은 숨김 제목처리해라.) */
-.a11y-hidden{
-  background: pink;
-  /* display: none; 사용하지 마시길*/
+@charset "utf-8";
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+@import url("./fonts.css");
+@import url("./normalize.css");
+@import url("./reset.css");
+/* 숨김 콘텐츠 */
+.a11y-hidden, legend{
   position: absolute;
-  /* top: -9999em; */
-  width:1px;
-  height:1px;
+  width: 1px;
+  height: 1px;
   margin: -1px;
   overflow: hidden;
-  clip:rect(0,0,0,0);
-  /* clip은 더이상 사용하지 않으므로 clip-path사용해라.  */
-  clip-path:insert(0,0);
+  clip: rect(0,0,0,0);
+  clip-path: inset(0,0);
 }
-
-/* 공통스타일 */
-*, *::before, *::after{
-  /* 블럭잡고 alt를 누르고 화살표 위아래를 하면 문장이 옮겨진다.  */
-  box-sizing:border-box;
-  font-family: 'Spoqa Han Sans', 'sans-serif'; /*앞에 것 있으면 먼저 쓰고 없으면 뒤에 것 쓴다 */
-}
-
-html{
-  font-size: 10px;
-}
-/* float이슈를 해결하기 위한 css선언 */
+/* 플로트 이슈를 해결하기 위한 css 선언 */
 .clearfix::after{
   content: "";
-  /* background: yellow; */
-  display:block;
-  clear:both;
+  display: block;
+  clear: both;
 }
-ul{
-  /* background: gray; */
-}
-ul ul{
-  /* background: tomato; */
-}
-/* ctrl+ / 누르면 주석 추가/해제 된다.  */
-
-/* layout */
-
-body{
-  margin: 0px;
-  font-weight: 400;
-  color : #181818;
-  font-size:1.4rem;
-}
-
 /* 링크 스타일 */
 a{
-  color: inherit; /*상속받은 것은 무시하고, 내가 가진 값을 먼저 적용 한다.a의 상속은 body이므로 body색이 적용 됨 */
-  text-decoration: none; /* 밑줄 그어주지 않음 */
+  color: inherit;
+  text-decoration: none;
 }
-/* a요소가 초첨을 받거나 a위에 마우스가 올려져있을 때  */
 a:hover, a:focus{
   color: #f00;
 }
-/* display:flex적용하는 방식 container안에 선언해야 한다. */
-.container{
-  /* linear-gradient 뒤에 선언 되는 값이 아래에 깔린다.  */
-  background: url("./images/bg_flower.png") no-repeat 50% 0, linear-gradient(to bottom, #999 0%, #ccc 50%, #eee 70%, #fff 100%);
-  /* display: flex; */
-  /* flex-direction:column;
-  align-items: center; */
-  /* 각각 줄바꿈 된다. flex-wrap: wrap;을 넣으면 (위의 flex-direction:column;과 유사하게 표출됨) */
-  /* flex-wrap: wrap; */
-  /* justify-content: center;
-  flex-flow: column wrap;  */
-  /* flex-wrap: wrap; flex-direction:column;을 섞어서 하나로 적은 형태  */
+
+/* 공통 스타일 */
+*, *::before, *::after{
+  box-sizing: border-box;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
+}
+html{
+  font-size: 10px;
+}
+body{
+  margin: 0;
+  font-weight: 400;
+  color : #181818;
+  font-size: 1.4rem;
 }
 
-/* 아래와 같이 적어주면 공통(.header, .visual, .main, .slogan, .footer)으로 적용 되는 css를 선언할 수 있다.  */
+/* 레이아웃 */
+.container{
+  background: url(./images/bg_flower.png) no-repeat 50% 0, linear-gradient(to bottom, #999 0%, #ccc 40%, #eee 60%, #fff 100%);
+  /* display: flex;
+  flex-direction: column; */
+  /* flex-flow: column wrap; */
+  /* flex-wrap: wrap;
+  justify-content: center; */
+}
 .header, .visual, .main, .slogan, .footer{
   width: 940px;
-  /* border:10px solid black;   검정색 선 상자가 만들어진다.  */
-  /* border:10px solid black; */
-  /* padding: 0 50px; */
-  /* margin: 0 0 0 auto; */
-/* 아래와 같이 작성하면 중간에 위치시킬 수 있다.  */
   margin-left: auto;
   margin-right: auto;
 }
@@ -91,122 +62,223 @@ a:hover, a:focus{
 }
 /* 헤더 */
 .header{
-  background: #ffffff;
+  background: #fff;
   position: relative;
-  padding: 0 30px;
+  padding:0 30px;
   border-radius: 0 0 15px 15px;
-  /* height: 10vh; 자동으로 줄었다 늘렀다 하게끔 할 예정으로 삭제*/
 }
 /* 로고 */
-/* .shadow{
-  background: black;
-  height: 50px;
-  position: relative;
-} */
-
 .logo{
-  position: absolute;/*layer로 만드는 개념이다. 가로/세로 크기를 알려주지 않으면 컨텐츠 크기만큼 잡힌다. relative와 차이점은 따로 크기를 차지하지 않는다.*/
+  /* background: teal; */
+  position: absolute;
   top: 47px;
   left: 65px;
 }
-
 /* 멤버 링크 모음 */
 .member{
-  padding: 2px 0;
+  padding:2px 0;
   text-align: right;
-  font-size:0;
+  font-size: 0px;
   margin-right: -10px;
-  
-  /*width: 200px; inline상자의 배치는 블록 상자의 크기에 따라 relative된다. member의 width를 줄이면 member li 안의 값도 같이 줄어든다. */
 }
 .member li, .member a{
   display:inline-block;
 }
 .member li{
-  font-size:1.4rem;
-  
-  /* 가로방향으로 나열 된다 */
-  /* width: 50px; */
+  font-size: 1.4rem;
 }
-/* a 요소보다 먼저 child가 만들어지고 ::after면 a요소보다 나중에 child가 만들어진다. */
-/* .member li::before{
-  content: ":";
-} */
-
 .bar::before{
   content: ":";
 }
 .member a{
   padding: 8px 10px;
   text-transform: uppercase;
-
 }
+/* 메인 메뉴 */
 .navigation{
-  padding-bottom: 50px;
+  padding-bottom: 40px;
 }
-/* 메인메뉴 */
 .menu{
-  /* color : #fff; */
-  /* background : orange;
-  background-image: linear-gradient(to bottom, red,  green); 이렇게 적는것과 아랫줄과 동일함. */
-/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  color: #181818;
+  /* background-color: orange;
+  background-image: linear-gradient(to bottom, red,green); */
+  background: #e2622b linear-gradient(to bottom, #e29a2d 0%, #e2622b 30%, #e2622b 70%, #e29a2d 100% );
   height: 47px;
-  border-radius: 0 0 5px 5px;  
+  border-radius: 0 0 5px 5px;
   box-shadow: 0 -2px 0 0 #181818;
-/* border-top:2px solid #000; */
-  background: #e2622b linear-gradient(to bottom, #e29a2d 0%, #e2622b 30%, #e2622b 70%, #e29a2d 100%);
-  
-  
+  /* border-top: 2px solid #181818; */
+  padding-left: 230px;
 }
-/* 복사하고 싶은 영역을 블럭을 잡고 alt + shift + 아래화살표 키를 누르면 복사 된다.   */
+.menu-item{
+  float: left;
+  position: relative;
+  /* line-height: 20px; */
+  border-left: 2px solid rgba(255,255,255,0.85);
+  padding: 0 17px;
+}
+/* 아래의 상황에서만 아웃라인을 없앤다(겉에 네모칸 쳐지는거) */
+.menu-item:focus, .sub-menu a:focus{
+  outline: 0;
+}
+.menu-item-text{
+  line-height: 47px;
+  display: block;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #fff;
+  text-shadow: 1px 0 0 #181818, 0 1px 0 #181818, -1px 0 0 #181818, 0 -1px 0 #181818;
+}
+.menu-act .menu-item-text{
+ color : #ff0;
+ border-bottom:2px solid #181818;
+}
+.sub-menu{
+position: absolute;
+top:49px;
+display: none;
+white-space: nowrap;
+}
 
+.sub-menu1, .sub-menu2, .sub-menu3{
+  left: 0px;
+}
+
+.sub-menu4, .sub-menu5, .sub-menu6{
+  right: 0px;
+}
+.menu-act .sub-menu{
+  display : block;
+}
+
+.sub-menu li, .sub-menu a{
+  display:inline-block;
+}
+
+.sub-menu li{
+  display: inline-block;
+}
+.sub-menu a{
+   padding : 10px 0;
+}
+.sub-menu a::before{
+  content: '\f192';
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sub-menu a:hover::before,
+.sub-menu a:focus::before{
+  content: '\e801'
+}
+/* 비주얼 */
+@keyframes textAni{
+  /* 글자크기를 12->24px로 늘려주는 작업을 할 예정 */
+  0%{
+      font-size: 12px;
+      color: rgba(0,0,0,0); /*완전히 투명한 상태*/
+      /* margin: 0; */
+      /* padding: 0; */
+      transform: translate(0,0);
+  }
+  100%{
+      font-size: 24px;
+      color: rgba(0,0,0,1); /*불투명한 상태로 변경*/
+      /* margin: 75px 0 0 400px; margin은 box사이즈에 더해지기 때문에 이렇게 하면 안된다 */
+      /* padding : 75px 0 0 400px; padding을 써서 animation을 구현하면 성능에 영향을 준다.  */
+      transform: translate(400px,75px);
+  }
+}
+@keyframes bgAni{
+  0%{opacity: 1;} /*불투명하게 시작해서 (1) -> 투명하게 만든다(0)*/
+  100%{opacity: 0;}
+}
 .visual{
-  /* background: gray; */
-  /* 광고 배너와 같은 곳에 사용된다. 정해져있는 고정사이트 준다. */
-  height: 120px;
+  height:130px;
+  position: relative;
+}
+.visual::before, .visual::after{
+  /* 부모와 동일한 사이즈를 덮는다.  */
+  content:"";
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  /* animation-name: bgAni;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate; */
+
+  /* 위의 4줄과 아래의 한줄과 같은 코드이다.  */
+  animation:bgAni 2000ms infinite alternate;
+  /* animation-play-state: paused; */
+}
+.visual::before{
+  background-image: url("./images/ani_flower_01.png"), url("./images/ani_flower_02.png"); /*1번 이미지가 위로 올라온다.*/
+  background-position: 0 -10px, 670px 0; /*앞의 이미지, 뒤의 의미지 별도로 설정 가능 */
+}
+.visual::after{
+  background-image: url("./images/ani_flower_03.png"), url("./images/ani_flower_04.png"); /*1번 이미지가 위로 올라온다.*/
+  background-position: 300px 0, 800px 15px; 
+  animation-delay: 1000ms;
+}
+.visual-text{
+  /* background: yellow; */
+  /* 위에서 아래로 내려오는 애니메이션 효과 / animation이 실행되려면, 실행될 시간 및 어떤 애니가 실행될지를 적어라(textAni)*/
+  animation-name : textAni;
+  animation-duration: 1000ms; /*2초에 걸쳐서 실행되어라*/
+  animation-fill-mode: forwards; /*0->100% 실행 시, 100% font크기(textAni의 100% 24px로 자동 적용 됨*/
+  position: absolute; /*width를 주지않으면 content크기만큼만 차지 한다. */
+  font-family: Georgia, 'Times New Roman', Times, serif
 }
 .main{
-  background: orangered;
-  /* height: 60vh; */
-  /* 높이가 부모만큼, 가로는 컨텐츠 만큼 들어간다.  */
-  /* display:flex; */
-  /* 나눠있는 여백을 같은 크기만큼 해준다. 양끝은 제외. evenly를 사용하면 베스트 이지만, ie11부터 호환 가능하므로 아래와 같이 padding을 추가하자*/
-  /* justify-content: space-between; */
+  background: #fff;
+  border-radius: 15px 15px 0 0;
   padding: 30px 0px;
-  min-height: 400px;
   /* overflow: hidden; */
-  /* justify-content: space-around; */
-
-  /* 남아있는 여백을 균등하게 여백을 준다.  다만 ie11이상이므로 적용이 안된다. 
-  justify-content: space-evenly;*/
+  min-height: 400px;
+  /* display:flex;
+  justify-content: space-between; */
 }
-/* after는 마지막 자식노드 요소를  */
 
 .group{
   margin: 0 15px;
   float: left;
 }
 .group1{
-  background: pink;
-  /* float: left;  */
-  width:250px;
+  
+  width: 250px;
+  
 }
 .group2{
-  /* float와 겹치지 못하게 하는 속성 clear */
   /* clear: both; */
-  background: skyblue;
-  /* height:100px; */
-  /* float:left; */
-  width: 380px;
-  /* 0보다 앞의 order를 주고싶으면 -를 주고, 0보다 큰 숫자를 주고 싶다면 0보다 큰 숫자를 주면된다.  */
-  /* 그룹1 -> 3 -> 2 */
-  /* order: 1;  */
+  
 
+  width: 380px;
+  /* order: -1; */
 }
 .group3{
-  background: lime;
-  /* float:left; */
+  
   width: 190px;
+}
+
+/* 로그인 */
+.login{
+  background: orange;
 }
 .slogan{
   background: purple;
@@ -214,13 +286,12 @@ a:hover, a:focus{
 }
 .footer-bg{
   background: silver;
-  
-  /* flex-basis: 100%; 부모인 영역사이즈 만큼 늘려줘~ (부모는 740px이 아닌 전체 화면이므로) */
-  /* flex-basis: 100%;  
-  display:flex;
+  /* flex-basis: 100%;
+  display: flex;
   justify-content: center; */
 }
 .footer{
   background: yellow;
   height: 10vh;
 }
+
