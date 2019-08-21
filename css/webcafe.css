@@ -278,14 +278,36 @@ white-space: nowrap;
 
 /* 로그인 */
 .login{
-  background: orange;
+  background: orangered;
   padding:10px;
   border-radius:5px;
   box-shadow: 5px 5px 0 0 #ccc;
 }
 
-.loginform, .sign{
+.login-heading{
+  font-weight: 700;
+  color: #ff0;
+  padding: 0 0 10px 10px;
+}
+.login-form, .sign{
   background: #fff;
+}
+.login-form{
+  padding: 10px 10px 0 10px;
+}
+.login-form fieldset{
+  border-bottom: 1px solid #aaa;
+}
+.sign{
+  display:flex; /*위아래가 아닌 한 줄로 나타내짐*/
+  letter-spacing: -1px; /*자간 간격 조절*/
+  justify-content: space-between; /*양      쪽   으로 위치하도록 됨*/
+  padding:10px;
+  /* border-top: 1px solid #aaa; */
+}
+.sign li::before{
+  margin-right: -2px;
+  margin-left:-2px;
 }
 .slogan{
   background: purple;
