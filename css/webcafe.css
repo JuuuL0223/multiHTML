@@ -279,6 +279,13 @@ white-space: nowrap;
 /* 로그인 */
 .login{
   background: orange;
+  padding:10px;
+  border-radius:5px;
+  box-shadow: 5px 5px 0 0 #ccc;
+}
+
+.loginform, .sign{
+  background: #fff;
 }
 .slogan{
   background: purple;
