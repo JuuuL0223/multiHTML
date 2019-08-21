@@ -278,10 +278,11 @@ white-space: nowrap;
 
 /* 로그인 */
 .login{
-  background: orangered;
+  /* background: orangered; */
+  background: radial-gradient(circle at right top, #e29a2d, #e2622b);
   padding:10px;
   border-radius:5px;
-  box-shadow: 5px 5px 0 0 #ccc;
+  box-shadow: 5px 5px 0 0 #ccc ;
 }
 
 .login-heading{
@@ -295,7 +296,7 @@ white-space: nowrap;
 }
 
 .btn-login{
-  position: relative;
+  position: absolute;
   top: 0;
   right: 0;
   width: 50px;
@@ -313,19 +314,25 @@ white-space: nowrap;
 }
 
 .login-form label{
-  display: inline-block;
-  width: 4em;
+  display: inline-block;/*block으로 하면. 아래로 label과 textbox가 나뉜다.*/
+  width: 4em;/*inline상자는 width를 주면 무시해 버린다. .. 따라서 inline-block을 써라~ */
 }
 
-
-
+.user-pw{
+  margin-top:6px;
+  margin-bottom: 6px;
+}
 .login-form input{
   width:100px;
   height:22px;
   padding: 1px 1px 1px 5px;
+  border: 1px solid #aaa;
 }
 .login-form fieldset{
   border-bottom: 1px solid #aaa;
+  position: relative;
+  /* background:pink; */
+  
 }
 
 
@@ -339,6 +346,7 @@ white-space: nowrap;
 .sign li::before{
   margin-right: -2px;
   margin-left:-2px;
+  color: #e2622b;
 }
 .slogan{
   background: purple;
