@@ -421,12 +421,12 @@ white-space: nowrap;
 }
 .board{
   margin-top:20px;
-  background:yellow;
+  /* background:yellow; */
   position: relative;
 }
 
 .notice{
-  background:pink;
+  /* background:pink; */
 }
 .pds{
   background: skyblue;
@@ -439,6 +439,7 @@ white-space: nowrap;
   padding: 5px 10px;
   position: absolute;
   top:0;
+  cursor: pointer;
 }
 .tab-act .tab{
   color: #e2622b;
@@ -452,27 +453,31 @@ white-space: nowrap;
   left:73px;
 }
 .board ul{
-  background:orange;
+  /* background:orange; */
   padding-top:45px;
 }
 .board li{ 
-  background: green;
+  /* background: green; */
   position: relative;
-  margin-bottom: 7px;}
-.board a{
-  background: yellow;
+  margin-bottom: 7px;
+}
+
+.board ul a{
   width:280px;
   display:block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.board time{
-  background:pink;
+.board ul time{
+  /* background:pink; */
   position: absolute;
   top:0;
   right:0;
 }
 .board [class$="more"] /*class이름이 more로 끝나는 경우*/
 {
-  background:silver;
+  /* background:silver; */
   position:absolute;
   top:0;
   right:0;
