@@ -512,43 +512,78 @@ body{
   position: relative;
 }
 .event-related{
-  background:pink;
-  border-radius: 15px 15px 15px 15px;
+  background:#ccc linear-gradient(#ccc, #eee);
+  border:1px solid #aaa;
+  border-radius: 5px 5px 5px 5px;
+  padding: 10px;
 }
-.event-thumbnail{
-  padding : 10px 10px;
+.event-thumbnail, .event-brief{
+  margin-top:10px;
 }
 .event-thumbnail img{
   /* margin-top:20px; */
   border:1px solid #999;
-  
+  box-shadow: 5px 5px 0 0 #999;
 }
 .event-detail{
   
 }
 
-.related::before {
+.related{
+  /* background: lime; */
+  margin-top:10px;
+  border-top:1px solid #aaa;
+}
+/* .related::before {
   content: "";
-  background: linear-gradient(to right, #ccc, #296897);
-  /* position: absolute; */
+  background: linear-gradient(to right, #ccc, #f00);
+  margin-top:10px;
+  margin-bottom:10px;
+  /* position: absolute; 
   width: 100%;
   top: 0px;
   left: 0px;
   height: 2px;
   display: block;
+} */
+
+.related-list{
+  background:#fff;
+  margin-top:10px;
+  border-radius:3px;
+border: 1x solid #aaa;
+height:27px;
+overflow: hidden;
+/* transition-property:height, padding, background;
+transition-duration:2s, 1s /*높이는 2초에 걸쳐서 여백은 1초에 걸쳐 진행*/
+/* transition-delay:0s, 2s, 3s; 시간차 애니메이션 시퀀스 애니메이션 */
+transition-property: all;
+transition-delay:0.4s;
 }
-.event-brief{
-  background:lime;
-  padding: 0px 10px;
+.related-list li{
+  line-height:25px;
+  text-indent:1em;/*첫줄 들여쓰기*/
 }
-.event-heading{
-  background:gray;
+
+.related-list a{
+  display: block;
+}
+.related-list:hover, .related-list:focus{
+height:147px;
+  padding:10px 0;
+background:yellow;
+}
+.event-heading, .related-heading, .favorite-heading{
+  /* background:gray; */
   font-weight: 700;
-  font-size:1.4rem;
+  font-size:1.6rem;
   position: relative;
-  padding:10px;
+  /* padding:10px; */
 }
-.event-heading span{
+.related-heading{
+  margin-top:10px;
+}
+.event-heading span, .related-heading span, .favorite-heading span{
   color:orange
 }
 .btn-event{
@@ -556,18 +591,218 @@ body{
   top:0;
   right:0;
 }
+.btn-event-prev, .btn-event-next{
+  width:19px;
+  height:18px;
+  border: 0;
+  padding:4px;
+  background:url("./images/back_forward.png") no-repeat;
+}
+.btn-event-next{
+  background-position: -36px 0; /*x좌표를 180도 바꾼다*/
+}
+/* 인기사이트 */
+.favorite{
+  margin-top: 20px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  background: linear-gradient(to bottom, #ccc, #eee);
+  background-color: #ccc;
+  padding: 10px;
+  position: relative;
+}
+.favorite-list{
 
+  overflow: hidden;
+  /* counter-reset: number; */
+  margin-top: 5px;
+}
+.favorite-list li{
+
+  margin: 5px 0;
+  counter-increment: number;
+  display:flex;
+  align-items:center;/*화살표를 중간에 위치하는 역할*/
+}
+
+.favorite-list em{
+  margin-left:auto;
+  background-image:url("./images/rank.png");
+  background-repeat: no-repeat;
+  width:9px;
+  height:11px;
+  padding-top:11px;
+  overflow:hidden;
+}
+.favorite-list li::before{
+  content: counter(number); /*number이란 변수는 위에 counter-increment에 지정한 이름이여야 한다.*/
+  color: #fff;
+  font-size: 1.2rem;
+  background-color: #aaa;
+  padding: 0 6px;
+  border-radius: 3px;
+  margin-right:5px;
+}
+.stop{
+  background-position:0 50%;
+}
+.down{
+  background-position: 0 100%;
+}
+/* .up, .stop, .down{
+  background: url("images/rank.png") no-repeat;
+  width: 9px;
+  height: 0;
+  padding-top: 11px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.stop{
+  background-position: 0 50%;
+}
+.down{
+  background-position: 0 100%;
+} */
+.favorite-more{
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  padding: 8px;
+}
+.favorite-more::before{
+  color: hsla(110,50%,30%,1);
+}
+
+/* .favorite{
+  background:#ccc linear-gradient(#ccc, #eee);
+  border:1px solid #aaa;
+  border-radius: 5px 5px 5px 5px;
+  padding: 10px;
+  margin-top:20px;
+  position: relative;
+}
+.favorite-list{
+  margin-top:10px;
+  background:yellow;
+  overflow:hidden;
+}
+.favorite .up{
+  background:url("./images/rank.png") no-repeat;
+}
+.favorite .down{
+  background-position: -50px 0;
+  background:url("./images/rank.png") no-repeat 0 -30px;
+}
+.favorite-list li{
+  display:flex;
+  justify-content: space-between;
+}
+.favorite-list em{
+  overflow: hidden;
+} */
+/* #up {
+  height:30px;
+  background: url("./images/rank.png") no-repeat 0 0;
+}
+#down{
+  height:30px;
+  background: url("./images/rank.png") no-repeat 0 -30px;
+} */
+
+/* .favorite-list{
+  margin-top:10px;
+  background:yellow;
+  overflow:hidden;
+} */
+/* .favorite-more{
+  position:absolute;
+  top:10px;
+  right:10px;
+} */
 .slogan{
-  background: purple;
-  height: 10vh;
+  /* background: purple; */
+  position: relative;
+  padding: 10px 100px 10px 180px;
+  /* height: 10vh; */
+}
+.slogan-content{
+  /* position: relative; */
+  /* line-height:2; */
+  color:#a09784;
+}
+
+.slogan-heading{
+  /* background:pink; */
+  width: 110px;
+  height: 83px;
+  position: absolute;
+  left:50px;
+  bottom: -25px;
+  text-align:center;
+  line-height:83px;
+}
+
+.slogan-heading::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: url("./images/coffee.png") no-repeat;
+}
+.slogan-content q::before{ 
+  font-size:3.5rem;
+  position:relative;
+  top:12px;
+}
+.slogan-content q::after{
+  content:"";
 }
 .footer-bg{
-  background: silver;
+  background: #ccc linear-gradient(to bottom, #999 0%, #ccc 40%, #eee 60%, #fff 100%);
   /* flex-basis: 100%;
   display: flex;
   justify-content: center; */
 }
 .footer{
   background: yellow;
-  height: 10vh;
+  /* height: 10vh; */
+  position: relative;
+  padding:15px 100px 10px 180px;
+}
+.footer-logo{
+  position: absolute;
+  top:50px;
+  left:40px;
+}
+.guide-list{
+  display:flex;
+  background: #7b8385;
+  color:#fff;
+  /* float:right; */
+  justify-content: space-around;
+  
+  width:690px;
+  height:40px;
+  padding: 2px 15px;
+  border-radius: 30px;
+  
+}
+.guide-list a{
+  display:block;
+  padding:8px 0;
+  text-transform:uppercase;
+}
+.address, .copyright{
+  display:block;
+  margin:10px 0;
+}
+.badge{
+  position: absolute;
+  top:15px;
+  right:0;
 }
